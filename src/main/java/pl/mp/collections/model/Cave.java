@@ -30,7 +30,7 @@ public class Cave {
     }
 
     public void remove (Dragon dragon){
-        dragonList.remove();
+        dragonList.remove(dragon);
     }
 
 
