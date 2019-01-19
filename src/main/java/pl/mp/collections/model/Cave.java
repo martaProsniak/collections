@@ -1,6 +1,7 @@
 package pl.mp.collections.model;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -31,6 +32,31 @@ public class Cave {
 
     public void remove (Dragon dragon){
         dragonList.remove(dragon);
+    }
+
+    /**
+     * Prints info about all dragons.
+     */
+    public void printAll (){
+        dragonList.forEach(System.out::println);
+    }
+
+    /**
+     * Prints dragon names.
+     */
+    public void printNames (){
+        dragonList.stream().map(Dragon::getName).forEach(System.out::println);
+    }
+
+    /**
+     * Sorts dragons by name, prints name and color
+     */
+    public void printNamesAndColors(){
+        dragonList.stream()
+                .sorted(Comparator.comparing(Dragon::getName))
+                .map(dragon -> dragon.getName() + ", " +
+                        dragon.getColor().toString().toLowerCase())
+                .forEach(System.out::println);
     }
 
 

@@ -19,7 +19,12 @@ public class DragonsMain {
         //Create new dragon cave
         Cave cave = addDragons();
 
-        cave.getDragonList().forEach(System.out::println);
+        cave.printAll();
+        printInterval();
+        cave.printNames();
+        printInterval();
+        cave.printNamesAndColors();
+        printInterval();
     }
 
     /**
@@ -49,6 +54,13 @@ public class DragonsMain {
         cave.add(dragon6);
 
         return cave;
+    }
+
+    /**
+     * Prints break between methods output.
+     */
+    public static void printInterval(){
+        System.out.println("* ------ * ------ * ------ * ------ *");
     }
 
 }
