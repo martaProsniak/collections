@@ -3,13 +3,30 @@ package pl.mp.collections;
 import pl.mp.collections.model.Cave;
 import pl.mp.collections.model.Dragon;
 
-
+/**
+ * Application main class.
+ * @author Marta
+ */
 public class DragonsMain {
 
+    /**
+     * Application main method.
+     * @param args Command line application starting arguments.
+     */
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Welcome to the Dragonland!");
 
         //Create new dragon cave
+        Cave cave = addDragons();
+
+        cave.getDragonList().forEach(System.out::println);
+    }
+
+    /**
+     * Creates cave with new dragons.
+     * @return new cave.
+     */
+    public static Cave addDragons(){
         Cave cave = new Cave();
 
         //Add some dragons to the list
@@ -31,7 +48,7 @@ public class DragonsMain {
         Dragon dragon6 = new Dragon("Alexstraza", 86, 9, Dragon.Color.GREEN);
         cave.add(dragon6);
 
-        cave.getDragonList().forEach(System.out::println);
+        return cave;
     }
 
 }
