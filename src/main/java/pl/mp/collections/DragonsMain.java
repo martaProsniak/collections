@@ -5,12 +5,14 @@ import pl.mp.collections.model.Dragon;
 
 /**
  * Application main class.
+ *
  * @author Marta
  */
 public class DragonsMain {
 
     /**
      * Application main method.
+     *
      * @param args Command line application starting arguments.
      */
     public static void main(String[] args) {
@@ -19,26 +21,36 @@ public class DragonsMain {
         //Create new dragon cave
         Cave cave = addDragons();
 
+        //Task 8
         cave.printAll();
         printInterval();
         cave.printNames();
         printInterval();
         cave.printNamesAndColors();
         printInterval();
+        //Task 9
+        System.out.println(cave.checkOldest());
+        printInterval();
+        System.out.println("Largest wingspan is: " + cave.checkLargestWings());
+        printInterval();
+        System.out.println("Longest name has " + cave.signsInLongestName() + " letters.");
+        printInterval();
+
     }
 
     /**
      * Creates cave with new dragons.
+     *
      * @return new cave.
      */
-    public static Cave addDragons(){
+    public static Cave addDragons() {
         Cave cave = new Cave();
 
         //Add some dragons to the list
-        Dragon dragon1 = new Dragon("Ysera", 50, 7, Dragon.Color.BLUE );
+        Dragon dragon1 = new Dragon("Ysera", 50, 7, Dragon.Color.BLUE);
         cave.add(dragon1);
 
-        Dragon dragon2 = new Dragon ("Villentretenmerth", 100, 8, Dragon.Color.GOLD);
+        Dragon dragon2 = new Dragon("Villentretenmerth", 100, 8, Dragon.Color.GOLD);
         cave.add(dragon2);
 
         Dragon dragon3 = new Dragon("Smaug", 120, 10, Dragon.Color.BLACK);
@@ -59,8 +71,8 @@ public class DragonsMain {
     /**
      * Prints break between methods output.
      */
-    public static void printInterval(){
-        System.out.println("* ------ * ------ * ------ * ------ *");
+    public static void printInterval() {
+        System.out.println("------  ------  ------  ------");
     }
 
 }
