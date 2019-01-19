@@ -35,7 +35,13 @@ public class DragonsMain {
         printInterval();
         System.out.println("Longest name has " + cave.signsInLongestName() + " letters.");
         printInterval();
-
+        //Task 10
+        cave.fetchByColor(Dragon.Color.BLACK).forEach(System.out::println);
+        printInterval();
+        cave.fetchByName().forEach(System.out::println);
+        printInterval();
+        cave.createColorList().forEach(System.out::println);
+        printInterval();
     }
 
     /**

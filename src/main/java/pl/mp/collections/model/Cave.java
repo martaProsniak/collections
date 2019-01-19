@@ -1,8 +1,10 @@
 package pl.mp.collections.model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Cave representation.
@@ -92,6 +94,43 @@ public class Cave {
                 .map(Dragon::getName)
                 .mapToInt(String::length)
                 .max().orElse(0);
+    }
+
+    /**
+     * Creates new dragon list with specified color.
+     *
+     * @param color dragon color (enum).
+     * @return new dragon list.
+     */
+    public List<Dragon> fetchByColor(Dragon.Color color) {
+        List<Dragon.Color> colorList = Arrays.asList(color);
+        return dragonList.stream()
+                .filter(dragon -> colorList.contains(dragon.getColor()))
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Creates new list with dragon's names.
+     *
+     * @return list of dragon's names.
+     */
+    public List<String> fetchByName() {
+        return dragonList.stream()
+                .map(Dragon::getName)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Creates a list of dragon's colors
+     *
+     * @return list of dragon's colors.
+     */
+    public List<Dragon.Color> createColorList() {
+        return dragonList.stream()
+                .map((Dragon::getColor))
+                .collect(Collectors.toList());
+
+
     }
 
 }
