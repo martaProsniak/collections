@@ -10,7 +10,7 @@ public class Dragon implements Comparable<Dragon> {
      * New type - Color
      */
     public enum Color {
-        RED, BLUE, GREEN, BLACK, GOLD
+        BLUE, BLACK, GREEN, GOLD, RED
     }
 
     /**

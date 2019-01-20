@@ -42,6 +42,10 @@ public class DragonsMain {
         printInterval();
         cave.createColorList().forEach(System.out::println);
         printInterval();
+        //Task 11
+        cave.sortNatural().forEach(System.out::println);
+        printInterval();
+        cave.sortByAGe().forEach(System.out::println);
     }
 
     /**

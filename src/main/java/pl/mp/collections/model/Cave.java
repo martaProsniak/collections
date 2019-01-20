@@ -1,5 +1,7 @@
 package pl.mp.collections.model;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -52,7 +54,7 @@ public class Cave {
     }
 
     /**
-     * Sorts dragons by name, prints name and color
+     * Sorts dragons by name, prints name and color.
      */
     public void printNamesAndColors() {
         dragonList.stream()
@@ -63,8 +65,6 @@ public class Cave {
     }
 
     /**
-     * Finds the oldest dragon.
-     *
      * @return the oldest dragon.
      */
     public Dragon checkOldest() {
@@ -97,10 +97,8 @@ public class Cave {
     }
 
     /**
-     * Creates new dragon list with specified color.
-     *
      * @param color dragon color (enum).
-     * @return new dragon list.
+     * @return new dragon list with specified color.
      */
     public List<Dragon> fetchByColor(Dragon.Color color) {
         List<Dragon.Color> colorList = Arrays.asList(color);
@@ -110,8 +108,6 @@ public class Cave {
     }
 
     /**
-     * Creates new list with dragon's names.
-     *
      * @return list of dragon's names.
      */
     public List<String> fetchByName() {
@@ -121,16 +117,28 @@ public class Cave {
     }
 
     /**
-     * Creates a list of dragon's colors
-     *
      * @return list of dragon's colors.
      */
     public List<Dragon.Color> createColorList() {
         return dragonList.stream()
                 .map((Dragon::getColor))
                 .collect(Collectors.toList());
-
-
     }
 
+    /**
+     * @return dragon list sorted according to natural order.
+     */
+    public List<Dragon> sortNatural() {
+        return dragonList.stream()
+                .sorted().collect(Collectors.toList());
+    }
+
+    /**
+     * @return dragon list sorted by age.
+     */
+    public List<Dragon> sortByAGe(){
+        return dragonList.stream()
+                .sorted(Comparator.comparingInt(Dragon::getAge))
+                .collect(Collectors.toList());
+    }
 }
