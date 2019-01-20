@@ -141,4 +141,29 @@ public class Cave {
                 .sorted(Comparator.comparingInt(Dragon::getAge))
                 .collect(Collectors.toList());
     }
+
+    /**
+     * checks if dragon with specified age exists.
+     * @param age age to be checked.
+     * @return true or false.
+     */
+    public boolean checkAge (int age){
+        boolean res = dragonList.stream()
+                .map(Dragon::getAge)
+                .anyMatch(value -> value.equals(age));
+        return res;
+    }
+
+    /**
+     * checks if dragon with specified color.
+     * @param color to be checked.
+     * @return true or false.
+     */
+    public boolean checkColor (Dragon.Color color){
+        boolean res = dragonList.stream()
+                .map(Dragon::getColor)
+                .anyMatch(value -> value.equals(color));
+        return res;
+    }
+
 }

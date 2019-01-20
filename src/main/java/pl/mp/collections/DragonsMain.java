@@ -46,6 +46,11 @@ public class DragonsMain {
         cave.sortNatural().forEach(System.out::println);
         printInterval();
         cave.sortByAGe().forEach(System.out::println);
+        printInterval();
+        //Task 12
+        System.out.println(cave.checkAge(120));
+        printInterval();
+        System.out.println(cave.checkColor(Dragon.Color.BLACK));
     }
 
     /**
