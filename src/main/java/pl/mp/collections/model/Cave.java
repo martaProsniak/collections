@@ -1,7 +1,5 @@
 package pl.mp.collections.model;
 
-import org.omg.CORBA.PUBLIC_MEMBER;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -136,7 +134,7 @@ public class Cave {
     /**
      * @return dragon list sorted by age.
      */
-    public List<Dragon> sortByAGe(){
+    public List<Dragon> sortByAGe() {
         return dragonList.stream()
                 .sorted(Comparator.comparingInt(Dragon::getAge))
                 .collect(Collectors.toList());
@@ -144,10 +142,11 @@ public class Cave {
 
     /**
      * checks if dragon with specified age exists.
+     *
      * @param age age to be checked.
      * @return true or false.
      */
-    public boolean checkAge (int age){
+    public boolean checkAge(int age) {
         boolean res = dragonList.stream()
                 .map(Dragon::getAge)
                 .anyMatch(value -> value.equals(age));
@@ -156,14 +155,41 @@ public class Cave {
 
     /**
      * checks if dragon with specified color.
+     *
      * @param color to be checked.
      * @return true or false.
      */
-    public boolean checkColor (Dragon.Color color){
+    public boolean checkColor(Dragon.Color color) {
         boolean res = dragonList.stream()
                 .map(Dragon::getColor)
                 .anyMatch(value -> value.equals(color));
         return res;
     }
 
+    /**
+     * Creates list of dragon eggs according to all dragons
+     *
+     * @return new list of all ,dragon eggs.
+     */
+    public List<Egg> eggList() {
+        return dragonList.stream()
+                .map(Egg::new)
+                .collect(Collectors.toList());
+    }
+
+    /**
+     * Creates new Egg list which only contains dragons with wingspan higher then given one.
+     *
+     * @param wings Dragon wingspan.
+     * @return fetched list of dragon eggs.
+     */
+    public List<Egg> wingspanEggList(int wings) {
+        List<Dragon> wingspanDragonList;
+        wingspanDragonList = dragonList.stream()
+                .filter(dragon -> dragon.getWingspan() > wings)
+                .collect(Collectors.toList());
+        return wingspanDragonList.stream()
+                .map(Egg::new)
+                .collect(Collectors.toList());
+    }
 }

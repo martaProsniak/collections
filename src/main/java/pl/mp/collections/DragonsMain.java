@@ -51,6 +51,12 @@ public class DragonsMain {
         System.out.println(cave.checkAge(120));
         printInterval();
         System.out.println(cave.checkColor(Dragon.Color.BLACK));
+        printInterval();
+        //Task 14
+        cave.eggList().forEach(System.out::println);
+        printInterval();
+        cave.wingspanEggList(9).forEach(System.out::println);
+        printInterval();
     }
 
     /**
@@ -79,6 +85,9 @@ public class DragonsMain {
 
         Dragon dragon6 = new Dragon("Alexstraza", 86, 9, Dragon.Color.GREEN);
         cave.add(dragon6);
+
+        Dragon dragon7 = new Dragon("Saskia", 150, 15, Dragon.Color.GOLD);
+        cave.add(dragon7);
 
         return cave;
     }
