@@ -149,7 +149,7 @@ public class Cave {
     public boolean checkAge(int age) {
         boolean res = dragonList.stream()
                 .map(Dragon::getAge)
-                .anyMatch(value -> value.equals(age));
+                .allMatch(value -> value>age);
         return res;
     }
 
@@ -185,10 +185,8 @@ public class Cave {
      */
     public List<Egg> wingspanEggList(int wings) {
         List<Dragon> wingspanDragonList;
-        wingspanDragonList = dragonList.stream()
+     return  dragonList.stream()
                 .filter(dragon -> dragon.getWingspan() > wings)
-                .collect(Collectors.toList());
-        return wingspanDragonList.stream()
                 .map(Egg::new)
                 .collect(Collectors.toList());
     }
