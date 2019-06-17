@@ -98,7 +98,7 @@ public class Cave {
      * @param color dragon color (enum).
      * @return new dragon list with specified color.
      */
-    public List<Dragon> fetchByColor(Dragon.Color color) {
+    public List<Dragon> showColorsOnly(Dragon.Color color) {
         List<Dragon.Color> colorList = Arrays.asList(color);
         return dragonList.stream()
                 .filter(dragon -> colorList.contains(dragon.getColor()))
@@ -108,7 +108,7 @@ public class Cave {
     /**
      * @return list of dragon's names.
      */
-    public List<String> fetchByName() {
+    public List<String> showNamesOnly() {
         return dragonList.stream()
                 .map(Dragon::getName)
                 .collect(Collectors.toList());
